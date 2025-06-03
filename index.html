@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gửi người iu của anh 🥺</title>
   <style>
     body {
@@ -13,13 +13,25 @@
       color: #333;
       text-align: center;
     }
+
     .container {
-      padding: 30px;
+      padding: 30px 15px;
+      max-width: 600px;
+      margin: 0 auto;
     }
+
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
     }
+
+    .typing-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+    }
+
     .typing {
       display: inline-block;
       border-right: 2px solid rgba(0,0,0,.75);
@@ -29,38 +41,63 @@
       animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
       max-width: 100%;
     }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
+
     @keyframes blink-caret {
       from, to { border-color: transparent }
       50% { border-color: black; }
     }
+
     .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       margin-top: 30px;
     }
+
     .images img {
-      width: 40%;
-      margin: 10px;
+      width: 45%;
+      max-width: 200px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
+
     audio {
       margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .typing {
+        font-size: 1em;
+      }
+      .images img {
+        width: 80%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>💌 Gửi người iu của anh 💌</h1>
-    <div class="typing">Anh xin lỗi, anh thương em lắm... đừng giận anh nữa nha 🥺</div>
+
+    <div class="typing-wrapper">
+      <div class="typing">Anh xin lỗi, anh thương Linh lắm... đừng giận anh nữa nha 🥺</div>
+    </div>
+
     <div class="images">
       <img src="15f222d57a6bcf35967a.jpg" alt="Em iu">
       <img src="baaf2221012ab574ec3b.jpg" alt="Anh iu">
     </div>
+
     <div>
-      <p>🎵 Nhạc nền: <a href="https://www.youtube.com/watch?v=FQzCSPQIU6U" target="_blank">Bấm vào đây nếu chưa nghe 🎧</a></p>
+      <audio autoplay loop controls>
+        <source src="ghệ bắc.mp3" type="audio/mpeg" />
+      </audio>
     </div>
   </div>
 </body>
