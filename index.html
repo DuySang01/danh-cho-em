@@ -32,7 +32,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 150px;
+      min-height: 150px;
+      margin-bottom: 40px; /* thêm khoảng cách dưới chữ */
     }
 
     .typing {
@@ -41,7 +42,7 @@
       font-size: 1.2em;
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      animation: typing 5s steps(60, end), blink-caret 0.75s step-end infinite;
       max-width: 100%;
     }
 
@@ -57,17 +58,24 @@
 
     .images {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
       gap: 20px;
-      margin-top: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
     }
 
     .images img {
-      width: 45%;
+      width: 40%;
       max-width: 200px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      animation: popIn 1s ease-in-out;
+    }
+
+    .heart-icon {
+      font-size: 36px;
+      color: hotpink;
       animation: popIn 1s ease-in-out;
     }
 
@@ -83,15 +91,22 @@
     }
 
     audio {
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     @media (max-width: 600px) {
       .typing {
         font-size: 1em;
+        white-space: normal;
+      }
+      .images {
+        flex-direction: column;
       }
       .images img {
         width: 80%;
+      }
+      .heart-icon {
+        margin: 10px 0;
       }
     }
 
@@ -133,29 +148,23 @@
 
   <div class="container">
     <h1>💌 Gửi người anh iu 💌</h1>
+
     <div class="typing-wrapper">
       <div class="typing">
-      Linh à, anh biết mấy ngày qua anh đã làm em buồn, làm em thất vọng.<br>
-      Anh không có lời bào chữa nào cả – chỉ muốn nói rằng anh thật sự rất xin lỗi.<br><br>
-
-      Anh đã suy nghĩ rất nhiều, và anh nhận ra:<br>
-      không có gì quan trọng bằng em và tình cảm của tụi mình.<br>
-      Anh sai, và anh muốn sửa sai, không phải bằng lời nói suông,<br>
-      mà bằng hành động – từ hôm nay, từ bây giờ.<br><br>
-
-      Anh nhớ em nhiều lắm, và anh thương em rất nhiều.<br>
-      Nếu em có thể tha thứ, anh hứa sẽ làm mọi thứ<br>
-      để không bao giờ khiến em phải khóc thêm một lần nào nữa.<br>
-      (nếu có đám chít a điiii 😢)<br><br>
-
-      Đừng giận anh nữa nha...<br>
-      Em là người đặc biệt nhất trong cuộc đời anh. 🥺💗
-    </div>
-
+        Linh, anh biết mấy ngày qua anh đã làm em buồn, làm em thất vọng.<br>
+        Anh không có lời bào chữa nào cả – chỉ muốn nói rằng anh thật sự rất xin lỗi.<br><br>
+        Anh đã suy nghĩ rất nhiều, và anh nhận ra:<br>
+        không có gì quan trọng bằng em và tình cảm của tụi mình.<br><br>
+        Anh nhớ em nhiều lắm, và anh thương em rất nhiều.<br>
+        Nếu em có thể tha thứ, anh hứa sẽ làm mọi thứ cho em (trừ trên giường :)<br><br>
+        Đừng giận anh nữa nha...<br>
+        Em là người đặc biệt nhất trong cuộc đời anh... Yêu em 💗
+      </div>
     </div>
 
     <div class="images">
       <img src="15f222d57a6bcf35967a.jpg" alt="Em iu">
+      <div class="heart-icon">💖</div>
       <img src="baaf2221012ab574ec3b.jpg" alt="Anh iu">
     </div>
 
