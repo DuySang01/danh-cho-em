@@ -12,12 +12,15 @@
       background: linear-gradient(to bottom, #ffe6f0, #ffccf2);
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
 
     .container {
       padding: 30px 15px;
       max-width: 600px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -65,6 +68,18 @@
       max-width: 200px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      animation: popIn 1s ease-in-out;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     audio {
@@ -79,14 +94,47 @@
         width: 80%;
       }
     }
+
+    /* Sticker Floating Animation */
+    .floating-stickers {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .sticker-float {
+      position: absolute;
+      animation: floatUp 6s linear forwards;
+      font-size: 24px;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Sticker Bay Bay -->
+  <div class="floating-stickers"></div>
+
   <div class="container">
     <h1>💌 Gửi người iu của anh 💌</h1>
-
     <div class="typing-wrapper">
-      <div class="typing">Anh xin lỗi, anh thương Linh lắm... đừng giận anh nữa nha 🥺</div>
+      <div class="typing">Anh xin lỗi, anh thương em lắm... đừng giận anh nữa nha 🥺</div>
     </div>
 
     <div class="images">
@@ -96,9 +144,26 @@
 
     <div>
       <audio autoplay loop controls>
-        <source src="ghệ bắc.mp3" type="audio/mpeg" />
+        <source src="ghebac.mp3" type="audio/mpeg" />
+        Trình duyệt bạn không hỗ trợ audio.
       </audio>
     </div>
   </div>
+
+  <script>
+    const container = document.querySelector('.floating-stickers');
+    const emojis = ['💖', '🐱', '🐻', '✨', '🌸', '💌'];
+
+    setInterval(() => {
+      const el = document.createElement('div');
+      el.classList.add('sticker-float');
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = '100vh';
+      el.style.fontSize = (24 + Math.random() * 16) + 'px';
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 6000);
+    }, 700);
+  </script>
 </body>
 </html>
